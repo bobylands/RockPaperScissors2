@@ -9,6 +9,9 @@
 
     <script>
 
+
+        //le computer fait un choix entre rock papier et ciseaux
+
         const computerTurn = () => {
             const number = Math.floor(Math.random()*3)
 
@@ -20,9 +23,13 @@
                 return "scissors"
         };
 
+        //je cree les variables pour le score des deux
+
         let humanScore = 0
         let computerScore = 0
 
+
+        //je cree la fonction pour determiner qui gagne et ce que ca va return
 
         const whoWins = (player,computer) => {
             if (player === computer){
@@ -39,6 +46,10 @@
             }
         }
 
+        // Avant j'avais player input et computer selection en dehors de la fonction
+        // pis ca marchait pas, jai pas trop compris le pourquoi mais je les ai mit
+        // dedans et maintenant ca marche alors, gg?
+
         const playGame = () =>{
         let playerInput = prompt("Entrez rock, paper ou scissors").toLowerCase()
         let computerSelection = computerTurn()
@@ -49,7 +60,8 @@
         console.log("the computers score is: " + computerScore)
     }
         
-
+        // le loop qui fait rejouer les parties 
+        
         for (let i=0; i<5; i++){
             playGame() 
         }
