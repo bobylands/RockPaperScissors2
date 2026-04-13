@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        const computerTurn = () => {
+            const number = Math.floor(Math.random()*3)
+
+            if (number === 0)
+                return "rock"
+            else if (number === 1)
+                return "paper"
+            else
+                return "scissors"
+        };
+
+        let humanScore = 0
+        let computerScore = 0
+
+
+        const whoWins = (player,computer) => {
+            if (player === computer){
+            console.log("draw")}
+
+            else if (player === "rock" && computer === "scissors" ||
+                     player === "paper" && computer === "rock" ||
+                     player === "scissors" && computer === "paper"){
+                     console.log("you win!")
+                     humanScore++}
+            else {
+                console.log("you lost retard")
+                computerScore++
+            }
+        }
+
+        const playGame = () =>{
+        let playerInput = prompt("Entrez rock, paper ou scissors").toLowerCase()
+        let computerSelection = computerTurn()
+        whoWins(playerInput,computerSelection)
+        console.log("you chose: " + playerInput)
+        console.log("the computer chose: " + computerSelection)
+        console.log("your score is: " + humanScore)
+        console.log("the computers score is: " + computerScore)
+    }
+        
+
+        for (let i=0; i<5; i++){
+            playGame() 
+        }
+
+    </script>
+
+    
+</body>
+</html>
