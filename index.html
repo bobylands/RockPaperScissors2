@@ -15,14 +15,17 @@
         const computerTurn = () => {
             const number = Math.floor(Math.random()*3)
 
-            if (number === 0)
-                return "rock"
-            else if (number === 1)
-                return "paper"
-            else
-                return "scissors"
+            switch (number){
+                case 0:
+                    return "rock"
+                case 1:
+                    return "paper"
+                default:
+                    return "scissors"
+            }
+            
         };
-
+        
         //je cree les variables pour le score des deux
 
         let humanScore = 0
@@ -30,14 +33,19 @@
 
 
         //je cree la fonction pour determiner qui gagne et ce que ca va return
+        // c'est tu ca tu voulais dire par retirer les conditions et les mettre en variables?
 
         const whoWins = (player,computer) => {
+
+            const playerWinRock = player === "rock" && computer === "scissors"
+            const playerWinPaper = player === "paper" && computer === "rock"
+            const playerWinScissors = player === "scissors" && computer === "paper"
+            const playerWin = playerWinRock || playerWinPaper || playerWinScissors
+            
             if (player === computer){
             console.log("draw")}
 
-            else if (player === "rock" && computer === "scissors" ||
-                     player === "paper" && computer === "rock" ||
-                     player === "scissors" && computer === "paper"){
+            else if (playerWin){
                      console.log("you win!")
                      humanScore++}
             else {
@@ -50,6 +58,9 @@
         // pis ca marchait pas, jai pas trop compris le pourquoi mais je les ai mit
         // dedans et maintenant ca marche alors, gg?
 
+
+         //ca marche parce que maintenant ta variable elle est locale. Quand tu les declarais en dehors, est-ce que tu les passaient en parametre de la fonction?
+         //jsuis pas sur de comprendre :(
         const playGame = () =>{
         let playerInput = prompt("Entrez rock, paper ou scissors").toLowerCase()
         let computerSelection = computerTurn()
@@ -61,9 +72,11 @@
     }
         
         // le loop qui fait rejouer les parties 
-        
-        for (let i=0; i<5; i++){
+        //ez dub
+        for (let i=0; i<50; i++){
             playGame() 
+            if (humanScore === 3 || computerScore === 3)
+            break
         }
 
     </script>
