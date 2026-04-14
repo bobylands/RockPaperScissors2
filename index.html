@@ -12,6 +12,9 @@
 
         //le computer fait un choix entre rock papier et ciseaux
 
+        //Tu peux aussi faire un switch quand tu as des cas comme ca
+        //P.S mon clavier est en anglais et flemme de le changer alors fuck mon orthographe
+
         const computerTurn = () => {
             const number = Math.floor(Math.random()*3)
 
@@ -21,6 +24,17 @@
                 return "paper"
             else
                 return "scissors"
+
+
+            //un switch ca ressemble a ca:
+            // switch (number) {
+            //     case 0:
+            //         return "rock";
+            //     case 1:
+            //         return "paper";
+            //     default:
+            //         return "scissors"
+            // }
         };
 
         //je cree les variables pour le score des deux
@@ -35,6 +49,7 @@
             if (player === computer){
             console.log("draw")}
 
+            //Ici on peut le rendre plus lisible en retirant les conditions et les mettre en variable :)
             else if (player === "rock" && computer === "scissors" ||
                      player === "paper" && computer === "rock" ||
                      player === "scissors" && computer === "paper"){
@@ -42,6 +57,7 @@
                      humanScore++}
             else {
                 console.log("you lost retard")
+                //yeah you fucktard
                 computerScore++
             }
         }
@@ -50,10 +66,13 @@
         // pis ca marchait pas, jai pas trop compris le pourquoi mais je les ai mit
         // dedans et maintenant ca marche alors, gg?
 
+        //ca marche parce que maintenant ta variable elle est locale. Quand tu les declarais en dehors, est-ce que tu les passaient en parametre de la fonction?
+
         const playGame = () =>{
         let playerInput = prompt("Entrez rock, paper ou scissors").toLowerCase()
         let computerSelection = computerTurn()
         whoWins(playerInput,computerSelection)
+        //Ici tu call whoWins qui va log le resultat de la partie mais tu log les choix apres.. essaie de baisser la fonction entre la ligne 77 et 78
         console.log("you chose: " + playerInput)
         console.log("the computer chose: " + computerSelection)
         console.log("your score is: " + humanScore)
@@ -61,6 +80,8 @@
     }
         
         // le loop qui fait rejouer les parties 
+
+        //defi: Faire en sorte que ca soit un best of 5.
         
         for (let i=0; i<5; i++){
             playGame() 
