@@ -33,7 +33,9 @@
 
 
         //je cree la fonction pour determiner qui gagne et ce que ca va return
-        // c'est tu ca tu voulais dire par retirer les conditions et les mettre en variables?
+        // c'est tu ca tu voulais dire par retirer les conditions et les mettre en variables? Yes good Job
+
+        //Maintenant j'aimerais que tu refactor le function pour qu'elle soit plus clean.. Une function doit faire une seule chose et bien la faire. Ici elle en fait 2. Je te laisse trouver comment la separer.
 
         const whoWins = (player,computer) => {
 
@@ -73,10 +75,16 @@
         
         // le loop qui fait rejouer les parties 
         //ez dub
-        for (let i=0; i<50; i++){
-            playGame() 
-            if (humanScore === 3 || computerScore === 3)
-            break
+        // for (let i=0; i<50; i++){
+        //     playGame() 
+        //     if (humanScore === 3 || computerScore === 3)
+        //     break
+        // }
+
+        // While loop : Continue sa loop tant que la condition est vrai, genre ici personne a atteint 3 points.
+        // plus propre qu'une For loop ici car la condition d'arrêt est directement dans la loop, pas besoin de break.
+        while (humanScore < 3 && computerScore < 3) {
+        playGame();
         }
 
     </script>
