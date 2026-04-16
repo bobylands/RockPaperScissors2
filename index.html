@@ -9,6 +9,10 @@
 
     <script>
 
+        //je cree les variables pour le score des deux
+
+        let humanScore = 0
+        let computerScore = 0
 
         //le computer fait un choix entre rock papier et ciseaux
 
@@ -26,36 +30,47 @@
             
         };
         
-        //je cree les variables pour le score des deux
-
-        let humanScore = 0
-        let computerScore = 0
+        
 
 
         //je cree la fonction pour determiner qui gagne et ce que ca va return
-        // c'est tu ca tu voulais dire par retirer les conditions et les mettre en variables? Yes good Job
+        // c'est tu ca tu voulais dire par retirer les conditions et les mettre en variables? Yes good Job      *blushes*
 
-        //Maintenant j'aimerais que tu refactor le function pour qu'elle soit plus clean.. Une function doit faire une seule chose et bien la faire. Ici elle en fait 2. Je te laisse trouver comment la separer.
+        //Maintenant j'aimerais que tu refactor la function pour qu'elle soit plus clean.. Une function doit faire une seule chose et bien la faire. Ici elle en fait 2. Je te laisse trouver comment la separer.
 
+        
+        
+        
+        
+        
         const whoWins = (player,computer) => {
 
             const playerWinRock = player === "rock" && computer === "scissors"
             const playerWinPaper = player === "paper" && computer === "rock"
             const playerWinScissors = player === "scissors" && computer === "paper"
-            const playerWin = playerWinRock || playerWinPaper || playerWinScissors
             
-            if (player === computer){
-            console.log("draw")}
-
-            else if (playerWin){
-                     console.log("you win!")
-                     humanScore++}
+            
+            if(player === computer){
+                return "draw"
+            }
             else {
-                console.log("you lost retard")
-                computerScore++
+            return playerWinRock || playerWinPaper || playerWinScissors
             }
         }
 
+        const logWinner = (x) => {
+            if(x === "draw"){
+                console.log("draw")
+            }
+            else if (x === true){
+                humanScore++
+                console.log("huge W my nibba")
+            }
+            else{
+                computerScore++
+                console.log("jump off a bridge now loser")
+            }
+}
         // Avant j'avais player input et computer selection en dehors de la fonction
         // pis ca marchait pas, jai pas trop compris le pourquoi mais je les ai mit
         // dedans et maintenant ca marche alors, gg?
@@ -63,14 +78,18 @@
 
          //ca marche parce que maintenant ta variable elle est locale. Quand tu les declarais en dehors, est-ce que tu les passaient en parametre de la fonction?
          //jsuis pas sur de comprendre :(
+
+
+
+         //pis mettons ya une facon que mon playerInput soit pas directement dans ma fonction playGame?
+
         const playGame = () =>{
         let playerInput = prompt("Entrez rock, paper ou scissors").toLowerCase()
         let computerSelection = computerTurn()
-        whoWins(playerInput,computerSelection)
-        console.log("you chose: " + playerInput)
-        console.log("the computer chose: " + computerSelection)
-        console.log("your score is: " + humanScore)
-        console.log("the computers score is: " + computerScore)
+        let result = whoWins(playerInput,computerSelection)
+        logWinner(result)
+        console.log("player: " + playerInput + " | " + "cpu: " + computerSelection)
+        console.log("the score is " + humanScore + " to " + computerScore)
     }
         
         // le loop qui fait rejouer les parties 
@@ -83,6 +102,10 @@
 
         // While loop : Continue sa loop tant que la condition est vrai, genre ici personne a atteint 3 points.
         // plus propre qu'une For loop ici car la condition d'arrêt est directement dans la loop, pas besoin de break.
+
+        //javoue c'est beaucoup mieux
+        // ps, merci de prendre le temps de m'aider, very appreciated
+        
         while (humanScore < 3 && computerScore < 3) {
         playGame();
         }
