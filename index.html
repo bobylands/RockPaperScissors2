@@ -29,6 +29,18 @@
             }
             
         };
+
+        //Maintenant que tu fais des arrays on peut le refactor comme ca:
+        // const choices = ["rock", "paper", "scissors"]
+        // const computerTurn = () => {
+        //     const number = Math.floor(Math.random()*3)
+        //     return choices[number]
+        // }
+
+
+        //ou encore plus clean:
+        // const choices = ["rock", "paper", "scissors"]
+        // const computerTurn = () => choices[Math.floor(Math.random()*choices.length)]
         
         
 
