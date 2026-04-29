@@ -26,8 +26,11 @@ const firstNumHigherThan4 = numbers.find((n) => {
 });
 console.log(firstNumHigherThan4); // 5
 
-// reduce — le plus weird au debut mais en gros ca accumule tout en une seule valeur
-// pense a ca comme: tu pars de 0, pis a chaque tour tu add le nombre au total mais tu pourrais aussi faire autre chose, genre multiplier ou garder une liste de tous les numbers pairs
+// reduce — le plus weird au debut mais en gros ca accumule tout en une 
+// seule valeur pense a ca comme: tu pars de 0, pis a chaque tour tu add 
+// le nombre au total mais tu pourrais aussi faire autre chose, 
+// genre multiplier ou garder une liste de tous les numbers pairs
+
 const total = numbers.reduce((total, n) => {
   return total + n;
 }, 0);
