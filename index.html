@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
     <div class="box">
-        <div class="player">a</div>
-        <div class="vs">b</div>
-        <div class="player">c</div>
+            <div class="rps">
+                <div class="rock">
+                    <button id="rock">
+                        <img src="img/rock.png" alt="rock" height="150px" width="150px">
+                    </button>
+                    <div>Rock</div>
+                </div>
+            
+                <div class="paper">
+                    <button id="paper">
+                        <img src="img/paper.png" alt="paper" height="150px" width="150px">
+                    </button>
+                    <div>Paper</div>
+                </div>
+                <div class="scissors">
+                    <button id="scissors">
+                        <img src="img/scissors.png" alt="scissors" height="150px" width="150px">
+                    </button>
+                    <div>Scissors</div>
+                </div>
+            </div>
+        <div class="winner"></div>
+        <div class="score">The score is 0-0</div>
     </div>
+
+    
     
 </body>
 </html>

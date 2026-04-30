@@ -1,14 +1,74 @@
+@font-face {
+  font-family: 'minecraft';
+  src: url('font/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Helps text appear faster while loading */
+}
+
+button {
+  border-radius: 8px;
+  transition: transform 0.1s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 body {
     background-color: black;
+    font-family: 'minecraft',sans-serif;
 }
 
 .box{
     display: flex;
-    justify-content:space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
     height: 600px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 50px 70px;
+}
+.rps{
+    display: flex;
+    justify-content:space-evenly;
+    gap: 300px;
+}
+.rock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 150px ;
+    width: 150px;
+    font-size:xx-large;
+}
+.paper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 150px ;
+    width: 150px;
+    font-size:xx-large;
+}
+.scissors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 150px ;
+    width: 150px;
+    font-size:xx-large;
+}
+.score{
+    font-size: xx-large;
+}
+.winner{
+    font-size: xx-large;
 }
